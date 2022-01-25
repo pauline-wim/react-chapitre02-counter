@@ -1,52 +1,21 @@
 import React from "react";
+// Components
+import Counter from "./components/Counter";
 // CSS
 import "./App.css";
 
-function decrementCounter(previousState) {
-  return {
-      count: previousState.count - 1
-  };
-};
-
-function incrementCounter(previousState) {
-  return {
-      count: previousState.count + 1
-  };
-};
-
 class App extends React.Component {
-
-  constructor() {
-    super();
-
-    this.state = {
-      count: 0,
-    }
-  }
-
   render() {
     return (
       <div className="main">
 
         <h1>Counter</h1>
 
-        <div className="container">
+        <Counter />
 
-          <button className="btn red" onClick={() => {
-							this.setState(decrementCounter);
-						}}>-</button>
-
-          <h2>{this.state.count}</h2>
-          
-          <button className="btn green" onClick={() => {
-							this.setState(incrementCounter);
-						}}>+</button>
-
-        </div>
-        
       </div>
-    )
-  }
-}
+    );
+  };
+};
 
 export default App;
