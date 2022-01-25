@@ -10,15 +10,20 @@ class Counter extends React.Component {
     };
 
     render() {
+        const counterLimit = this.state.count;
         return (
             <div className="container">
     
-                <button className="btn red" onClick={() => {
-                    this.setState((substract) => ({ 
-                    count: substract.count - 1 
-                    }));
-                }}>-</button>
-    
+                {counterLimit === 0 ? (
+                    <button className="btn red" onClick={console.log("The counter doesn't go below 0.")}>-</button>
+                    ) : (
+                    <button className="btn red" onClick={() => {
+                        this.setState((substract) => ({ 
+                        count: substract.count - 1
+                        }));
+                    }}>-</button>
+                    )
+                }
                 <h2>{this.state.count}</h2>
                 
                 <button className="btn green" onClick={() => {
